@@ -1,32 +1,31 @@
-//05_¸Ş½ÃÁöÃ³¸®ÇÔ¼ö.cpp
 #pragma comment (linker, "/subsystem:windows")
 
 #include <Windows.h>
 #include <tchar.h>
 
-//¸Ş½ÃÁö Ã³¸® ÇÔ¼ö
+//ë©”ì‹œì§€ ì²˜ë¦¬ í•¨ìˆ˜
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
 	switch (msg)
 	{
 		case WM_LBUTTONDOWN:
 		{
-			MessageBox(hwnd, TEXT("LBUTTON"), TEXT("È®ÀÎ"), MB_OK);
+			MessageBox(hwnd, TEXT("LBUTTON"), TEXT("í™•ì¸"), MB_OK);
 			return 0;
 		}		
 
-		//À©µµ¿ì »ı¼ºµÇ¾ú°í, È­¸é¿¡ ¾Èº¸ÀÎ´Ù.
-		//ÃÊ±âÈ­!!!!
+		//ìœˆë„ìš° ìƒì„±ë˜ì—ˆê³ , í™”ë©´ì— ì•ˆë³´ì¸ë‹¤.
+		//ì´ˆê¸°í™”!!!!
 		case WM_CREATE:
 		{
 			return 0;
 		}
 		
-		//DestroyWindow() ÇÔ¼ö ³»ºÎ¿¡¼­ È£Ãâ
-		//Á¾·áÃ³¸®½ÃÁ¡!!!!
+		//DestroyWindow() í•¨ìˆ˜ ë‚´ë¶€ì—ì„œ í˜¸ì¶œ
+		//ì¢…ë£Œì²˜ë¦¬ì‹œì !!!!
 		case WM_DESTROY:
 		{
-			//App Q¿¡ WM_QUIT ¸Ş½ÃÁö ³Ö¾îÁØ´Ù.
+			//App Qì— WM_QUIT ë©”ì‹œì§€ ë„£ì–´ì¤€ë‹¤.
 			PostQuitMessage(0);
 			return 0;
 		}
@@ -35,19 +34,19 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	return DefWindowProc(hwnd, msg, wParam, lParam);
 }
 
-//½ÃÀÛ ÇÔ¼ö
+//ì‹œì‘ í•¨ìˆ˜
 int WINAPI _tWinMain(HINSTANCE hInst, HINSTANCE hprevInstance, LPTSTR cmdline, int showcmd)
 {
-	//1. À©µµ¿ì Å¬·¡½º Á¤ÀÇ
+	//1. ìœˆë„ìš° í´ë˜ìŠ¤ ì •ì˜
 	WNDCLASSEX wnd;
 	wnd.cbSize = sizeof(WNDCLASSEX);
 
 	wnd.style = CS_HREDRAW | CS_VREDRAW;  //  0;
 	wnd.hInstance		= hInst;
-	wnd.lpfnWndProc		= WndProc;  // DefWindowProc;	//¹Ì¸® Á¤ÀÇµÇ¾î ÀÖ´Â ¸Ş½ÃÁö Ã³¸® ÇÁ·Î½ÃÀú
+	wnd.lpfnWndProc		= WndProc;  // DefWindowProc;	//ë¯¸ë¦¬ ì •ì˜ë˜ì–´ ìˆëŠ” ë©”ì‹œì§€ ì²˜ë¦¬ í”„ë¡œì‹œì €
 	wnd.lpszClassName	= TEXT("wb41");
 
-	//¹Ì¸® ¸¸µé¾îÁø ¸®¼Ò½º¸¦ »ç¿ëÇÏ´Â ¹æ¹ı
+	//ë¯¸ë¦¬ ë§Œë“¤ì–´ì§„ ë¦¬ì†ŒìŠ¤ë¥¼ ì‚¬ìš©í•˜ëŠ” ë°©ë²•
 	wnd.hIcon = LoadIcon(0, IDI_APPLICATION);
 	wnd.hCursor = LoadCursor(0, IDC_HAND);
 	//BRUSH, PEN, FONT
@@ -58,23 +57,23 @@ int WINAPI _tWinMain(HINSTANCE hInst, HINSTANCE hprevInstance, LPTSTR cmdline, i
 	wnd.cbWndExtra = 0;
 	wnd.hIconSm = 0;
 
-	//2. À©µµ¿ì Å¬·¡½º µî·Ï
+	//2. ìœˆë„ìš° í´ë˜ìŠ¤ ë“±ë¡
 	RegisterClassEx(&wnd);
 
-	//3. À©µµ¿ì°´Ã¼ (»ı¼º.. CreateXXX)
-	HWND hwnd = CreateWindowEx(WS_EX_TOPMOST, TEXT("wb41"), TEXT("Ã¹¹øÂ° À©µµ¿ì"),
-		WS_OVERLAPPEDWINDOW,// &~ WS_MAXIMIZEBOX &~ WS_MINIMIZEBOX,
+	//3. ìœˆë„ìš°ê°ì²´ (ìƒì„±.. CreateXXX)
+	HWND hwnd = CreateWindowEx(WS_EX_TOPMOST, TEXT("wb41"), TEXT("ì²«ë²ˆì§¸ ìœˆë„ìš°"),
+		WS_OVERLAPPEDWINDOW,// &~WS_MAXIMIZEBOX & ~WS_MINIMIZEBOX,
 		CW_USEDEFAULT, 0,
 		500, 500, //CW_USEDEFAULT, 0,
 		0, 0, hInst, 0);
 
-	//4. À©µµ¿ì È­¸é Ãâ·Â
-	ShowWindow(hwnd, SW_SHOW); //showcmd : WinMainÀÇ ¸¶Áö¸·ÀÎÀÚ	
+	//4. ìœˆë„ìš° í™”ë©´ ì¶œë ¥
+	ShowWindow(hwnd, SW_SHOW); //showcmd : WinMainì˜ ë§ˆì§€ë§‰ì¸ì	
 
 
-	//5. ¸Ş½ÃÁö ·çÇÁ
+	//5. ë©”ì‹œì§€ ë£¨í”„
 	MSG msg;
-	//GetMessage : WM_QUIT¸¦ °¡Á®¿ÔÀ» ¶§¸¸ FALSE ¹İÈ¯
+	//GetMessage : WM_QUITë¥¼ ê°€ì ¸ì™”ì„ ë•Œë§Œ FALSE ë°˜í™˜
 	while (GetMessage(&msg, 0, 0, 0))
 	{
 		DispatchMessage(&msg);
