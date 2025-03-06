@@ -48,5 +48,20 @@
     <ClCompile Include="10_2_IPC송신부.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Practice_DeviceControl.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Practice_DC_sin.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Practice_TEXTOUT.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Practice_CreatePen.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Practice_Brush.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
