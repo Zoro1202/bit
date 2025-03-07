@@ -26,14 +26,14 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	case WM_PAINT:
 	{
 		HDC hdc = BeginPaint(hwnd, &ps);
-		MoveToEx(hdc, 0, cyClient / 2, NULL); 
+		MoveToEx(hdc, 0, cyClient / 2, NULL);
 		LineTo(hdc, cxClient, cyClient / 2);
 
 		for (i = 0; i < NUM; i++)
 		{
 			apt[i].x = i * cxClient / (NUM - 1);	// NUM => 점의 개수
 			apt[i].y = (int)(cyClient / 2 * (1 - sin(TWOPI * i / (NUM - 1)))); // sin(0)->sin(Pi/2)->sin(Pi)->sin(Pi*3/4)->sin(2*Pi)
-		}																 // 0       1          0        -1            0
+		}															            // 0       1          0        -1            0
 		Polyline(hdc, apt, NUM);
 		return 0;
 	}
@@ -103,4 +103,4 @@ int WINAPI _tWinMain(HINSTANCE hInst, HINSTANCE hprevInstance, LPTSTR cmdline, i
 	}
 
 	return 0;
-}
+}  
