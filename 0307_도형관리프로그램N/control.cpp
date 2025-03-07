@@ -66,7 +66,7 @@ void con_updateShapeType(HWND hwnd, int key)
 }
 
 void con_updateShapeBrushColor(HWND hwnd, int key)
-{
+{ 
 	if (key == 'R') shape_setBrushColor(&g_shape, RGB(255, 0, 0));
 	else if (key == 'G') shape_setBrushColor(&g_shape, RGB(0, 255, 0));
 	else if (key == 'B') shape_setBrushColor(&g_shape, RGB(0, 0, 255));
@@ -82,4 +82,12 @@ void con_shapeDelete(HWND hwnd)
 		g_shapes.erase(g_shapes.begin() + g_shapes.size() - 1);
 		InvalidateRect(hwnd, 0, TRUE);
 	}
+}
+
+void con_shapeInfo(HWND hwnd)
+{
+	static TCHAR buf[50];
+	shape_tostring(&g_shape, buf);
+	MessageBox(hwnd, buf, TEXT("Á¤º¸"), MB_OK);
+	
 }

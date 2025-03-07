@@ -39,7 +39,7 @@ LRESULT OnKeyDown(HWND hwnd, WPARAM wParam)
 	if (key == VK_UP || key == VK_DOWN) {
 		con_updateShapeSize(hwnd, (int)wParam);
 	}
-	else if (key == '1' || key == '2' 
+	else if (key == '1' || key == '2'
 		|| key == VK_NUMPAD1 || key == VK_NUMPAD2)
 	{
 		con_updateShapeType(hwnd, key);
@@ -50,6 +50,10 @@ LRESULT OnKeyDown(HWND hwnd, WPARAM wParam)
 	}
 	else if (key == VK_ESCAPE) {
 		con_shapeDelete(hwnd);
+	}
+	else if (key == 'I')
+	{
+		con_shapeInfo(hwnd);
 	}
 	return 0;
 }

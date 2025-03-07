@@ -12,3 +12,4 @@ void con_updateShapeSize(HWND hwnd, int key);
 void con_updateShapeType(HWND hwnd, int key);
 void con_updateShapeBrushColor(HWND hwnd, int key);
 void con_shapeDelete(HWND hwnd);
+void con_shapeInfo(HWND hwnd);
