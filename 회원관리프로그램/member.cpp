@@ -3,9 +3,9 @@
 
 void member_setMember(MEMBER* pmember, const TCHAR* name, int gender, const TCHAR* phone)
 {
-	lstrcpyn(pmember->name, name, _countof(pmember->name));
+	lstrcpy(pmember->name, name);
 	pmember->gender = gender;
-	lstrcpyn(pmember->phone, phone, _countof(pmember->phone));
+	lstrcpy(pmember->phone, phone);
 }
 
 TCHAR* member_getName(MEMBER* pmember)
@@ -22,7 +22,7 @@ TCHAR* member_getPhone(MEMBER* pmember)
 }
 void member_setName(MEMBER* pmember, TCHAR* name)
 {
-	lstrcpyn(pmember->name, name, _countof(pmember->name));
+	lstrcpy(pmember->name, name);
 }
 void member_setGender(MEMBER* pmember, int gender)
 {
@@ -30,5 +30,5 @@ void member_setGender(MEMBER* pmember, int gender)
 }
 void member_setPhone(MEMBER* pmember, TCHAR* phone)
 {
-	lstrcpyn(pmember->phone, phone, _countof(pmember->phone));
+	lstrcpy(pmember->phone, phone);
 }

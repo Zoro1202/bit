@@ -9,16 +9,16 @@
 #define IDC_STATIC  5
 
 //저장하기 버튼
-#define IDC_SAVE	7
+#define IDC_SAVE	101
 //삭제버튼
-#define IDC_DELBTN  13
+#define IDC_DELBTN  102
 //리스트박스
-#define IDC_LISTBOX 8
+#define IDC_LISTBOX 103
 //남녀버튼
-#define IDC_RADIO_M 10
-#define IDC_RADIO_F	11
+#define IDC_RADIO_M 104
+#define IDC_RADIO_F	105
 //리스트전체출력버튼
-#define IDC_LISTBTN 12
+#define IDC_LISTBTN 106
 #include <Windows.h>
 #include <tchar.h>
 #include <vector>

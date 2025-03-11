@@ -21,7 +21,6 @@ LRESULT OnPaint(HWND hwnd, WPARAM wParam, LPARAM lParam)
 	PAINTSTRUCT ps;
 	HDC hdc = BeginPaint(hwnd, &ps);
 
-
 	EndPaint(hwnd, &ps);
 	return 0;
 }
@@ -33,6 +32,7 @@ LRESULT OnCommand(HWND hwnd, WPARAM wParam, LPARAM lParam)
 	case IDC_DELBTN:
 	{
 		con_delete(hwnd);
+		break;
 	}
 	case IDC_SAVE: // 저장하기 버튼
 	{

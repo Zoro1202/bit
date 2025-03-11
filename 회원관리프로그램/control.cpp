@@ -11,6 +11,10 @@ void con_init(HWND hwnd)
 {
 	member_setMember(&g_curmember, TEXT("김민석"), 0, TEXT("010-1234-5678"));
 	g_member.push_back(g_curmember);
+	member_setMember(&g_curmember, TEXT("이민재"), 0, TEXT("010-9245-9439"));
+	g_member.push_back(g_curmember);
+	member_setMember(&g_curmember, TEXT("김민재"), 0, TEXT("010-5245-7439"));
+	g_member.push_back(g_curmember);
 }
 
 void con_insert(HWND hwnd)
@@ -56,7 +60,13 @@ void con_printall(HWND hwnd)
 void con_select(HWND hwnd)
 {
 	int index = SendMessage(hListBox1, LB_GETCURSEL, 0, 0);
-	if (index == LB_ERR) return;
+	if (index == LB_ERR) {
+		SetWindowText(hEdit9, NULL);
+		SendMessage(hEdit6, BM_SETCHECK, BST_UNCHECKED, 0);
+		SendMessage(hEdit7, BM_SETCHECK, BST_UNCHECKED, 0);
+		SetWindowText(hEdit8, NULL);
+		return;
+	}
 	g_curmember = g_member[index];
 	SetWindowText(hEdit9, g_member[index].name);
 	if (g_member[index].gender == 1) {
@@ -72,17 +82,27 @@ void con_select(HWND hwnd)
 
 void con_delete(HWND hwnd)
 {
+	if (g_member.size() <= 0) return;
 	int ret;
 	vector<MEMBER>::iterator imem;
-	for (imem = g_member.begin(); ; imem++) {
+	for (imem = g_member.begin(); imem != g_member.end(); ) {
 		MEMBER tmemp = *imem;
 		ret = memcmp(&tmemp, &g_curmember, sizeof(tmemp));
 		if (ret == 0) {
-			g_member.erase(imem);
-			g_member.pop_back();
+			imem = g_member.erase(imem);
+			//g_member.pop_back();
 			break;
 		}
+		else {
+			++imem;
+		}
 	}
+	// ----------  삭제 하면 검색창 초기화 ----------------
+	SetWindowText(hEdit9, NULL);
+	SendMessage(hEdit6, BM_SETCHECK, BST_UNCHECKED, 0);
+	SendMessage(hEdit7, BM_SETCHECK, BST_UNCHECKED, 0);
+	SetWindowText(hEdit8, NULL);
+	// --------------------------------------------------
 	con_printall(hwnd);
 }
 
@@ -97,7 +117,7 @@ void con_printControls(HWND hwnd)
 		20, 40, 90, 20, hwnd, (HMENU)-1, 0, NULL);
 	hEdit1 = CreateWindow(TEXT("Edit"), TEXT(""),
 		WS_CHILD | WS_BORDER | WS_VISIBLE,
-		120, 40, 90, 20, hwnd, (HMENU)IDC_EDIT, 0, 0);
+		120, 40, 90 + 30, 20, hwnd, (HMENU)IDC_EDIT, 0, 0);
 	// gender
 	//남
 	CreateWindow(TEXT("static"), TEXT("성별"), WS_CHILD | WS_VISIBLE,
@@ -113,7 +133,7 @@ void con_printControls(HWND hwnd)
 		20, 100, 90, 20, hwnd, (HMENU)-1, 0, NULL);
 	hEdit4 = CreateWindow(TEXT("Edit"), TEXT(""),
 		WS_CHILD | WS_BORDER | WS_VISIBLE,
-		120, 100, 90, 20, hwnd, (HMENU)IDC_EDIT, 0, 0);
+		120, 100, 90 + 30, 20, hwnd, (HMENU)IDC_EDIT, 0, 0);
 	//button
 	hEdit5 = CreateWindow(TEXT("button"), TEXT("저장하기"), WS_CHILD | WS_VISIBLE |
 		BS_PUSHBUTTON, 140, 150, 100, 25, hwnd, (HMENU)IDC_SAVE, 0, NULL);
@@ -126,7 +146,7 @@ void con_printControls(HWND hwnd)
 		20 + 395, 40, 90, 20, hwnd, (HMENU)-1, 0, NULL);
 	hEdit9 = CreateWindow(TEXT("Edit"), TEXT(""),
 		WS_CHILD | WS_BORDER | WS_VISIBLE | WS_DISABLED,
-		120 + 395, 40, 90, 20, hwnd, (HMENU)IDC_EDIT, 0, 0);
+		120 + 395, 40, 90 + 30, 20, hwnd, (HMENU)IDC_EDIT, 0, 0);
 	// gender
 	//남
 	CreateWindow(TEXT("static"), TEXT("성별"), WS_CHILD | WS_VISIBLE,
@@ -143,7 +163,7 @@ void con_printControls(HWND hwnd)
 		20 + 395, 100, 90, 20, hwnd, (HMENU)-1, 0, NULL);
 	hEdit8 = CreateWindow(TEXT("Edit"), TEXT(""),
 		WS_CHILD | WS_BORDER | WS_VISIBLE | WS_DISABLED,
-		120 + 395, 100, 90, 20, hwnd, (HMENU)IDC_EDIT, 0, 0);
+		120 + 395, 100, 90 + 30, 20, hwnd, (HMENU)IDC_EDIT, 0, 0);
 	hEdit10 = CreateWindow(TEXT("button"), TEXT("삭제하기"), WS_CHILD | WS_VISIBLE |
 		BS_PUSHBUTTON, 140 + 395, 150, 100, 25, hwnd, (HMENU)IDC_DELBTN, 0, NULL);
 	// ---------------멤버 리스트 박스 ----------------
