@@ -28,13 +28,13 @@ void con_ipc_Point(HWND hdlg, WPARAM w)
 	POINT pt = ui_getPosition(hdlg);
 	if (w == IDC_BUTTON4) 
 	{
-		pt.y -= 5;
+		pt.y += 5;
 		ui_setPosition(hdlg, pt.x, pt.y);
 		ipc_up(hdlg);
 	}
 	else if (w == IDC_BUTTON7) 
 	{
-		pt.y += 5;
+		pt.y -= 5;
 		ui_setPosition(hdlg, pt.x, pt.y);
 		ipc_down(hdlg);
 	}

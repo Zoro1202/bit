@@ -11,7 +11,9 @@ void con_init(HWND hdlg)
 
 void con_print(HWND hdlg, HDC hdc)
 {
-	ui_print(hdlg, hdc, g_shape.rc, g_shape.color);
+	if (g_shape.isShow) {
+		ui_print(hdlg, hdc, g_shape.rc, g_shape.color);
+	}
 }
 
 void con_visible(HWND hdlg, LPARAM lParam)
@@ -27,9 +29,9 @@ void con_color(HWND hdlg, LPARAM lParam)
 
 void con_position(HWND hdlg, LPARAM lParam)
 {
-	if (lParam == 1) g_shape.rc.top += 10, g_shape.rc.bottom += 10;
-	else if (lParam == 2) g_shape.rc.top -= 10, g_shape.rc.bottom -= 10;
+	if (lParam == 2) g_shape.rc.top += 10, g_shape.rc.bottom += 10;
+	else if (lParam == 1) g_shape.rc.top -= 10, g_shape.rc.bottom -= 10;
 	else if (lParam == 3) g_shape.rc.left += 10, g_shape.rc.right += 10;
-	else if (lParam == 2) g_shape.rc.left -= 10, g_shape.rc.right -= 10;
+	else if (lParam == 4) g_shape.rc.left -= 10, g_shape.rc.right -= 10;
 
 }

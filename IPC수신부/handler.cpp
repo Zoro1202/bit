@@ -35,7 +35,7 @@ bool OnCommand(HWND hdlg, WPARAM wParam, LPARAM lParam)
 
 bool OnMYSHOW(HWND hdlg, WPARAM wParam, LPARAM lParam)
 {
-	MessageBox(hdlg, TEXT("찾음"), TEXT("창"), MB_OK);
+	//MessageBox(hdlg, TEXT("찾음"), TEXT("창"), MB_OK);
 	con_visible(hdlg, lParam);
 	InvalidateRect(hdlg, 0, TRUE);
 	return TRUE;
