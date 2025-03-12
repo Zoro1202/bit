@@ -49,9 +49,9 @@ void con_printall(HWND hwnd)
 	for (int i = 0; i < g_member.size(); i++)
 	{
 		TCHAR buf[128];
-		wsprintf(buf, TEXT("%s %c %s"), 
+		wsprintf(buf, TEXT("%s %s %s"), 
 			g_member[i].name, 
-			g_member[i].gender == 1 ? 'M' : 'F', 
+			g_member[i].gender == 1 ? TEXT("³²") : TEXT("¿©"),
 			g_member[i].phone);
 		SendMessage(hListBox1, LB_ADDSTRING, 0, (LPARAM)buf);
 	}
