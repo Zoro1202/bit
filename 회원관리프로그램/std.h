@@ -1,8 +1,12 @@
 #pragma once
 
 #pragma comment (linker, "/subsystem:windows")
+#include <Windows.h>
+#include <tchar.h>
+#include <vector>
+using std::vector;
 
-//그냥들
+
 #define IDC_BUTTON	1
 #define IDC_EDIT	2
 #define IDC_RADIO   3
@@ -19,14 +23,7 @@
 #define IDC_RADIO_F	105
 //리스트전체출력버튼
 #define IDC_LISTBTN 106
-#include <Windows.h>
-#include <tchar.h>
-#include <vector>
-using std::vector;
 
 #include "handler.h"
 #include "member.h"
-
-
-// control
 #include "control.h"
