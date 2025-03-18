@@ -75,7 +75,6 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 			0,
 			&tid);
 
-
 		return 0;
 	} case WM_RBUTTONDOWN:
 	{
