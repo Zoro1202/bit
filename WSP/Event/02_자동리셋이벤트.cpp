@@ -16,7 +16,7 @@ DWORD WINAPI ServerThread(LPVOID p)
 	{
 		WaitForSingleObject(hEvent1, INFINITE);
 		sum = 0;
-		for (int i = 0; i < gx; i++)
+		for (int i = 1; i <= gx; i++)
 		{
 			sum += i;
 		}

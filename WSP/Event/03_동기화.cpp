@@ -63,7 +63,7 @@ DWORD WINAPI ConsumeThread(LPVOID p)
 
 		SendMessage(hPro, PBM_SETPOS, q.size(), 0);
 
-		wsprintf(buf, TEXT("큐의 개수 : %ld"), q.size());
+		wsprintf(buf, TEXT("큐의 개수 : %lu"), q.size());
 		SetWindowText(hStatic1, buf);
 
 		ReleaseMutex(hMutex);
