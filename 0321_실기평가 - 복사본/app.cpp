@@ -45,6 +45,22 @@ BOOL OnCommand(HWND hdlg, WPARAM wParam, LPARAM lParam)
 		con_loadfile(hdlg);
 		return TRUE;
 	}
+	// 메뉴 -------------------------------------------------------------
+	else if (LOWORD(wParam) == ID_40001) // 도서 다른 이름으로 저장 메뉴
+	{
+		con_savefile_filename(hdlg);
+		return TRUE;
+	}
+	else if (LOWORD(wParam) == ID_40002) // 도서 불러오기 메뉴
+	{
+		con_loadfile_filename(hdlg);
+		return TRUE;
+	}
+	else if (LOWORD(wParam) == ID_40003) // 프로그램 종료 메뉴
+	{
+		con_loadfile(hdlg);
+		return TRUE;
+	}
 
 	return FALSE;
 }

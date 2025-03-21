@@ -6,6 +6,10 @@ void con_savefile(HWND hdlg);
 
 void con_loadfile(HWND hdlg);
 
+void con_savefile_filename(HWND hdlg);
+
+void con_loadfile_filename(HWND hdlg);
+
 void con_printBooks(HWND hdlg);
 
 void con_insertBook(HWND hdlg);

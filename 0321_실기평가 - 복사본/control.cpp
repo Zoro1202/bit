@@ -39,6 +39,16 @@ void con_loadfile(HWND hdlg)
 	con_printBooks(hdlg);
 }
 
+void con_savefile_filename(HWND hdlg)
+{
+	file_dlg_save(hdlg, books);
+}
+void con_loadfile_filename(HWND hdlg)
+{
+	file_dlg_open(hdlg, books);
+	con_printBooks(hdlg);
+}
+
 void con_printBooks(HWND hdlg)
 {
 	SendMessage(hList, LVM_DELETEALLITEMS, 0, 0);
@@ -72,16 +82,16 @@ void con_insertBook(HWND hdlg)
 	books.push_back(pb);
 	con_printBooks(hdlg);
 }
-
+// 업데이트 할 때 문제가 있음. 그냥 author Edit box를 없애야 할 듯.
 void con_updateBook(HWND hdlg)
 {
-	TCHAR title[30], author[30];
+	TCHAR title[30];// author[30];
 	int price;
 	try
 	{
 		GetDlgItemText(hdlg, IDC_EDIT4, title, _countof(title));
 		price = GetDlgItemInt(hdlg, IDC_EDIT5, 0, 0);
-		GetDlgItemText(hdlg, IDC_EDIT6, author, _countof(author));
+		//GetDlgItemText(hdlg, IDC_EDIT6, author, _countof(author));
 		BOOK* pbook = checktitle(hdlg, title);
 		MessageBox(hdlg, TEXT("성공"), TEXT("update"), MB_OK);
 		book_setData(pbook, price, pbook->author);
