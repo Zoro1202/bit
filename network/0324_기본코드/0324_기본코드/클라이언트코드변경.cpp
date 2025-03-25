@@ -4,8 +4,8 @@
 #pragma comment (lib, "WS2_32.LIB")
 
 #define SERVER_IP_MAIN "127.0.0.1"
-#define SERVER_IP "192.168.0.139"
-//#define SERVER_IP "220.90.180.111"
+//#define SERVER_IP "192.168.0.139"
+#define SERVER_IP "220.90.180.111"
 #define SERVER_PORT 9000
 
 int main()

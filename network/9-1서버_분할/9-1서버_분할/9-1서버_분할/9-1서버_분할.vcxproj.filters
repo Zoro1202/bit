@@ -15,26 +15,43 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="01_환경구축.cpp">
+    <ClCompile Include="start.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="02_클라이언트.cpp">
+    <ClCompile Include="app.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="03_기본코드의이해.cpp">
+    <ClCompile Include="control.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="서버코드변경.cpp">
+    <ClCompile Include="net.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="클라이언트코드변경.cpp">
+    <ClCompile Include="packet.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="클라이언트코드변경２일대다.cpp">
+    <ClCompile Include="member.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="8-2_가변데이터클라이언트.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="std.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="app.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="control.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="net.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="packet.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="member.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
