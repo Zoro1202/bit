@@ -1,6 +1,6 @@
 #include "std.h"
 
-MEMBER ui_getDatafromDlg(HWND hdlg)
+MEMBER ui_getAddDatafromDlg(HWND hdlg)
 {
 	MEMBER mem;
 	GetDlgItemTextA(hdlg, IDC_EDIT1, mem.name, strlen(mem.name));
@@ -9,9 +9,23 @@ MEMBER ui_getDatafromDlg(HWND hdlg)
 	return mem;
 }
 
-void ui_getname(HWND hdlg, char* name)
+MEMBER ui_getUpdateDatafromDlg(HWND hdlg)
+{
+	MEMBER mem;
+	GetDlgItemTextA(hdlg, IDC_EDIT10, mem.name, strlen(mem.name));
+	GetDlgItemTextA(hdlg, IDC_EDIT11, mem.phone, strlen(mem.phone));
+	mem.age = GetDlgItemInt(hdlg, IDC_EDIT12, 0, 0);
+	return mem;
+}
+
+void ui_getSelectNamefromDlg(HWND hdlg, char* name)
 {
 	GetDlgItemTextA(hdlg, IDC_EDIT4, name, strlen(name));
+}
+
+void ui_getDeleteNamefromDlg(HWND hdlg, char* name)
+{
+	GetDlgItemTextA(hdlg, IDC_EDIT7, name, strlen(name));
 }
 
 void ui_getipport(HWND hdlg, char* ip, int* port)
@@ -20,11 +34,8 @@ void ui_getipport(HWND hdlg, char* ip, int* port)
 	*port = GetDlgItemInt(hdlg, IDC_EDITPORT, 0, 0);
 }
 
-void ui_setDatatoDlg(HWND hdlg)
+void ui_setUpdateData(HWND hdlg, char* name, char* phone, int age)
 {
-	char name[20] = {0}; // 서버에서 가져올 예정
-	char phone[20] = {0}; // 서버에서 가져올 예정
-	int age = 0; // 서버에서 가져올 예정
 	SetDlgItemTextA(hdlg, IDC_EDIT4, name);
 	SetDlgItemTextA(hdlg, IDC_EDIT5, phone);
 	SetDlgItemInt(hdlg, IDC_EDIT6, age, 0);

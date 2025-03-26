@@ -15,6 +15,14 @@
 #define IDC_EDITIP                      1010
 #define IDC_EDITPORT                    1011
 #define IDC_BUTTONCON                   1012
+#define IDC_EDIT7                       1013
+#define IDC_EDIT8                       1014
+#define IDC_EDIT9                       1015
+#define IDC_BUTTON4                     1016
+#define IDC_EDIT10                      1017
+#define IDC_EDIT11                      1018
+#define IDC_EDIT12                      1019
+#define IDC_BUTTON5                     1020
 
 // Next default values for new objects
 // 

@@ -2,9 +2,10 @@
 
 //net 모듈에 존재하는 전역변수(통신소켓)
 SOCKET sock;
-
-bool net_initlibrary()
+HWND hdlg;
+bool net_initlibrary(HWND h)
 {
+	hdlg = h;
 	WSADATA wsa;
 	if (WSAStartup(MAKEWORD(2, 2), &wsa) != 0)
 		return false;
@@ -17,7 +18,7 @@ void net_exitlibrary()
 	WSACleanup();
 }
 
-bool net_create_socket(const char* ip, int port)
+bool net_create_socket(const char* ip, int port, char* buf)
 {
 	sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if (sock == INVALID_SOCKET)
@@ -39,7 +40,7 @@ bool net_create_socket(const char* ip, int port)
 		return false;
 	}
 
-	CloseHandle(CreateThread(0, 0, recv_thread, (void*)sock, 0, 0));
+	CloseHandle(CreateThread(0, 0, recv_thread, (void*)buf, 0, 0));
 
 	return true;
 }
@@ -51,8 +52,6 @@ void net_delete_socket()
 
 unsigned long __stdcall recv_thread(void* p)
 {
-	SOCKET sock = (SOCKET)p;
-
 	char recv_buf[1024];
 	while (true)
 	{
@@ -71,7 +70,8 @@ unsigned long __stdcall recv_thread(void* p)
 		else
 		{
 			//printf("	[수신 byte] %dbyte, %s\n", recv_byte, recv_buf);
-			msg_parsing(recv_buf);
+			msg_parsing(hdlg, recv_buf);
+			
 		}
 	}
 	return 0;
@@ -133,6 +133,24 @@ void send_selectmember(char* name)
 {
 	SelectMemberPacket packet;
 	packet.flag = PACKET_SELECTMEMBER;
+	strcpy_s(packet.name, sizeof(packet.name), name);
+	send_data(sock, (char*)&packet, sizeof(packet), 0);
+}
+
+void send_updatemember(char* name, char* phone, int age)
+{
+	UpdateMemberPacket packet;
+	packet.flag = PACKET_UPDATEMEMBER;
+	strcpy_s(packet.name, sizeof(packet.name), name);
+	strcpy_s(packet.phone, sizeof(packet.phone), phone);
+	packet.age = age;
+	send_data(sock, (char*)&packet, sizeof(packet), 0);
+}
+
+void send_deletemember(char* name)
+{
+	DeleteMemberPacket packet = { 0 };
+	packet.flag = PACKET_DELETEMEMBER;
 	strcpy_s(packet.name, sizeof(packet.name), name);
 	send_data(sock, (char*)&packet, sizeof(packet), 0);
 }

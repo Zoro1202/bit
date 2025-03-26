@@ -12,5 +12,9 @@ void con_selectMember(HWND hdlg);
 
 void con_updateMember(HWND hdlg);
 
+void con_deleteMember(HWND hdlg);
+
 //test
 void con_sendmessage(HWND hdlg);
+
+void msg_parsing(HWND hdlg, char* buf);

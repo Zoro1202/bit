@@ -70,5 +70,76 @@ int msg_parsing(char* buf, vector<MEMBER> &members)
 		printf("[%s] %s\n", packet->name, packet->msg);
 		return sizeof(ShortMessagePacket);
 	}
+	else if (*flag == PACKET_UPDATEMEMBER)
+	{
+		UpdateMemberPacket* packet = (UpdateMemberPacket*)buf;
+
+		UpdateMemberPacket member = { 0 };
+		int result = 0;
+		for (int i = 0; i < members.size(); i++)
+		{
+			member = members[i];
+			if (strcmp(member.name, packet->name) == 0)
+			{
+				printf("수정 성공\n");
+				result = 1;
+				//Update
+				strcpy_s(members[i].phone, sizeof(members[i].phone), packet->phone);
+				members[i].age = packet->age;
+				break;
+			}
+		}
+		if (result == 0)
+			printf("검색 실패\n");
+		
+		//----------------- 전송 ---------------------------------------
+		UpdateMemberAckPacket ackpacket = { 0 };
+		if (result == 1)
+			ackpacket.flag = PACKET_UPDATEMEMBER_S;
+		else
+			ackpacket.flag = PACKET_UPDATEMEMBER_F;
+
+		strcpy_s(ackpacket.name, sizeof(ackpacket.name), member.name);
+		strcpy_s(ackpacket.phone, sizeof(ackpacket.phone), member.phone);
+		ackpacket.age = member.age;
+
+		memcpy_s(buf, sizeof(UpdateMemberAckPacket), (char*)&ackpacket, sizeof(UpdateMemberAckPacket));
+		return sizeof(UpdateMemberAckPacket);
+	}
+	else if (*flag == PACKET_DELETEMEMBER)
+	{
+		DeleteMemberPacket* packet = (DeleteMemberPacket*)buf;
+
+		DeleteMemberPacket member = { 0 };
+		int result = 0;
+		for (int i = 0; i < members.size(); i++)
+		{
+			member = members[i];
+			if (strcmp(member.name, packet->name) == 0)
+			{
+				printf("삭제 성공\n");
+				result = 1;
+				//Update
+				members.erase(members.begin() + i);
+				break;
+			}
+		}
+		if (result == 0)
+			printf("검색 실패\n");
+
+		//----------------- 전송 ---------------------------------------
+		DeleteMemberAckPacket ackpacket = { 0 };
+		if (result == 1)
+			ackpacket.flag = PACKET_DELETEMEMBER_S;
+		else
+			ackpacket.flag = PACKET_DELETEMEMBER_F;
+
+		strcpy_s(ackpacket.name, sizeof(ackpacket.name), member.name);
+		strcpy_s(ackpacket.phone, sizeof(ackpacket.phone), member.phone);
+		ackpacket.age = 0;
+
+		memcpy_s(buf, sizeof(DeleteMemberAckPacket), (char*)&ackpacket, sizeof(DeleteMemberAckPacket));
+		return sizeof(DeleteMemberAckPacket);
+	}
 	return 0;
 }
