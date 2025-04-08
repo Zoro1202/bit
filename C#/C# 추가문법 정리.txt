@@ -1,0 +1,49 @@
+C# 추가문법 정리
+LinQ : SQL과 유사한 문장을 C#에서 사용할 수 있도록 만든 라이브러리
+SQL Struct Query Language 질의형 언어DB
+
+확장 메서드 -> IEnumerable 등 Interface를 구현하면 사용할 수 있는 멤버연산자로 사용하는 메서드.
+
+가변 매개변수 : params 
+메서드를 정의할 때 몇 개의 인자를 받아야 할 지 정할 수 없으면 params 키워드를 사용하면
+가변 인자를 받을 수 있음.
+int Add(params int[] values);
+
+check / uncheck 
+check : 오버, 언더 플로우 시에 예외를 던져줌
+ucheck : 예외를 던지지 않음, 일반 코드와 같음
+*프로젝트 속성 >> 빌드 : 고급 >> 산술 오버플로 확인 체크 시 check가 모든 코드에 적용*
+
+var 키워드
+컴파일러가 타입을 추론해서 컴파일 때 타입이 정해짐
+Dictionary<string, int> 이런 타입을 간소화 시켜줌
+
+dynamic 키워드
+var과 비슷함, var는 컴파일러가 빌드 시점에 타입 치환
+dynamic은 프로그램이 실행되는 시점에 타입 치환, int 타입으로 초기화해도 다시 string타입을 넣을 수도 있다.(코드에서)
+
+nullable 형식
+null : DB, 값이 존재하지 않는다.
+값 형식에 대해 null이 가능하게 해줌
+int? a = null;
+
+
+?? 연산자
+참조 형 피연산자 1의 값이 있으면 그대로 반환. null이면 피연산자 2를 반환.
+string str = null;
+Console.WriteLine(str ?? "NULL");
+?. 연산자 : 멤버 연산에서 null인 멤버면 null을 바로 반환
+
+yield return / break
+IEnumerable, IEnumerator  인터페이스를 구현하면
+foreach문에 클래스를 사용할 수 있게 된다.
+
+익명 메서드
+이름이 없는 메서드 : 델리게이트에 전달되는 메서드가 일회성으로만 필요할 때 편의상 사용.
+
+익명 형식
+메소드 내에서 즉시 데이터 구조를 정의하여 사용할 수 있도록 도와 준다.
+클래스 혹은 구조체를 정의해서 사용하지 않고 사용하고자 하는 시점에 바로 변수와 같이 정의해서 사용 가능하다.
+var emp = new { BirthYear = 1978, Name = "김도현" }; <<< 선언 & 정의
+emp.BirthYear | emp.Name <<< 사용
+
