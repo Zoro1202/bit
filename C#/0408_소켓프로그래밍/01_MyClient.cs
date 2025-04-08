@@ -63,6 +63,10 @@ namespace _0408_소켓프로그래밍
         #endregion
 
         #region 2. 소멸자
+        ~MyClient1()
+        {
+            Dispose();
+        }
         public void Close()
         {
             socket.Close();
