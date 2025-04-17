@@ -168,7 +168,7 @@ namespace _0416_계좌관리프로그램_메모리디비
                 r["date"] = date;
                 account_table.Rows.Add(r);
                 Console.WriteLine("저장 성공");
-                return int.Parse(account_table.Rows[account_table.Rows.Count - 1]["ID"].ToString());
+                return int.Parse(r["ID"].ToString());
             }
             catch (Exception ex)
             {
@@ -184,7 +184,7 @@ namespace _0416_계좌관리프로그램_메모리디비
                 r["balance"] = balance;
                 account_table.Rows.Add(r);
                 Console.WriteLine("저장 성공");
-                return int.Parse(account_table.Rows[account_table.Rows.Count-1]["ID"].ToString());
+                return int.Parse(r["ID"].ToString());
             }
             catch (Exception ex)
             {
@@ -199,7 +199,7 @@ namespace _0416_계좌관리프로그램_메모리디비
                 r["Name"] = name;
                 account_table.Rows.Add(r);
                 Console.WriteLine("저장 성공");
-                return int.Parse(account_table.Rows[account_table.Rows.Count-1]["ID"].ToString());
+                return int.Parse(r["ID"].ToString());
             }
             catch (Exception ex)
             {
