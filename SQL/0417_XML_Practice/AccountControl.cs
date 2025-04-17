@@ -104,12 +104,30 @@ namespace _0417_XML_Practice
             {
                 if(reader.IsStartElement("Account"))
                 {
-                    reader.MoveToContent();
-                    int id = int.Parse(reader.Value);
-
+                    list.Add(MakeAccount(reader));
                 }
             }
+            reader.Close();
             return list;
+        }
+
+        private Account MakeAccount(XmlReader reader)
+        {
+            int id = 0;
+            string name = string.Empty;
+            int balance = 0;
+            DateTime date = DateTime.Now;
+
+            reader.ReadToDescendant("ID");
+            id = int.Parse(reader.ReadElementString("ID").ToString());
+            reader.ReadToNextSibling("Name");
+            name = reader.ReadElementString("Name").ToString();
+            reader.ReadToNextSibling("Balance");
+            balance = int.Parse(reader.ReadElementString("Balance").ToString());
+            reader.ReadToNextSibling("Date");
+            date = DateTime.Parse(reader.ReadElementString("Date").ToString());
+            Account account = new Account(id, name, balance, date);
+            return account;
         }
 
         #endregion
