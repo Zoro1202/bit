@@ -1,0 +1,18 @@
+﻿[데이터베이스 프로그래밍]
+
+1) 테이블 설계
+2) 관련 쿼리문 완성
+3) 코드 적용
+
+select * from s_product;
+
+INSERT INTO s_product VALUES('C# Network', 20000, 'C# Network 설명...');
+
+update s_product set price = 25000, description='하나이상의수정도가능' where pid = 1010;
+update s_product set price = 25000 where pname = 'C언어';
+
+delete from s_product where pid=20000;
+delete from s_product where pname='C#';
+
+select SUM(Price) from s_product;
+select MAX(Price) from s_product;
