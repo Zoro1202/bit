@@ -1,0 +1,32 @@
+﻿<Window x:Class="_0428_WPFAPP.Test"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_0428_WPFAPP"
+        mc:Ignorable="d"
+        Title="Test" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <!--첫번째 행-->
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <!--첫번째 행 안의 첫번째 열-->
+            <Grid Grid.Column="0">
+                <Button FontWeight="Bold" FontSize="16">
+                    TEXT
+                </Button>
+            </Grid>
+        </Grid>
+        <!--두번째 행-->
+        <Grid Grid.Row="1">
+            
+        </Grid>
+    </Grid>
+</Window>

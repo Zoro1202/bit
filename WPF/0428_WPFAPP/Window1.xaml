@@ -1,0 +1,18 @@
+﻿<Window x:Class="_0428_WPFAPP.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_0428_WPFAPP"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Canvas x:Name="canvas1" Background="White" MouseLeftButtonDown="canvas1_MouseLeftButtonDown">
+        <Button Content="1" Canvas.Bottom="10" Canvas.Left="10" Width="80" Height="25"/>
+        <Ellipse Canvas.Right="10" Canvas.Top="10" Width="80" Height="25" Fill="Blue"/>
+        <Rectangle x:Name="rect" Height="100" Canvas.Left="311" Stroke="Black" Canvas.Top="160" Width="100"/>
+        <Button x:Name="up_btn" Click="Button_Click" Content="UP" Canvas.Left="50" Canvas.Top="5" Height="43" Width="43"/>
+        <Button x:Name="left_btn" Click="Button_Click" Content="LEFT" Canvas.Left="4" Canvas.Top="51" Height="43" Width="43" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="right_btn" Click="Button_Click" Content="RIGHT" Canvas.Left="96" Canvas.Top="51" Height="43" Width="43" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="down_btn" Click="Button_Click" Content="DOWN" Canvas.Left="50" Canvas.Top="51" Height="43" Width="43" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+    </Canvas>
+</Window>
