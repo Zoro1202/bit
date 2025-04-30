@@ -1,0 +1,38 @@
+﻿<Window x:Class="_0430_턴제게임.MenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_0430_턴제게임"
+        mc:Ignorable="d"
+        Title="MenuWindow" Height="300" Width="400" ResizeMode="CanMinimize" Background="Black" Foreground="White" Icon="/charizard.gif">
+    <Window.DataContext>
+        <local:WindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button VerticalAlignment="Center" Content="메뉴" Margin="10, 0, 10, 0" BorderBrush="White" Background="Black" Foreground="White"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.ColumnSpan="2" Margin="0,47,0,47" Grid.RowSpan="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <StackPanel VerticalAlignment="Center">
+                    <Button Command="{Binding MenuBossCommand}" Padding="13" Margin="10, 5, 10, 5" Content="보스와 배틀" FontWeight="Bold" FontSize="14"/>
+                    <Button Padding="13" Margin="10, 5, 10, 5" Content="통신 배틀" FontWeight="Bold" FontSize="14"/>
+                    <Button Padding="13" Margin="10, 5, 10, 5" Content="종료" FontWeight="Bold" FontSize="14"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
