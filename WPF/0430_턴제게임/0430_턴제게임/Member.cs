@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace _0430_턴제게임
-{
+{ 
     class Member
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public float Hp { get; set; }
-        public int PP { get; set; }
-
+        public Skill[] Skills { get; set; } = new Skill[4];
+        public int Experience { get; set; }
+        public int Level { get; set; }
     }
 }

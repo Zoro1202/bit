@@ -42,7 +42,7 @@
                     </TransformGroup>
                 </Image.RenderTransform>
             </Image>
-            <local:MonsterInfo x:Name="_myMonster" Margin="243,184,257,17"/>
+            <local:MonsterInfo Margin="243,184,257,17"/>
             <Ellipse HorizontalAlignment="Left" Height="43" Margin="46,251,0,0" VerticalAlignment="Top" Width="197" Panel.ZIndex="-1">
                 <Ellipse.Fill>
                     <RadialGradientBrush>
@@ -68,11 +68,60 @@
             </Grid.ColumnDefinitions>
             <!--무엇을 할까? -> -->
             <Grid Grid.Column="0">
-                
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="Black" TextWrapping="Wrap" Text="무엇을 할까?"/>  
             </Grid>
             <!--기술, 가방 어쩌고 선택-->
             <Grid Grid.Column="2">
-                
+                <!--음 기술을 어케 바꾸지 이것도 유저 컨트롤으로 해야 하나 아 귀찮아-->
+                <StackPanel>
+                    <Button>
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontSize="20" FontWeight="Bold" Foreground="Black" TextWrapping="Wrap" Text="{Binding SelectedMember.Skills[0].Name}"/>
+                                <TextBlock FontSize="20" FontWeight="Bold" Foreground="Black" TextWrapping="Wrap" Text="/"/>
+                                <TextBlock FontSize="20" FontWeight="Bold" Foreground="Black" TextWrapping="Wrap" Text="{Binding SelectedMember.Skills[0].Damage}"/>
+                                <TextBlock FontSize="20" FontWeight="Bold" Foreground="Black" TextWrapping="Wrap" Text="/"/>
+                                <TextBlock FontSize="20" FontWeight="Bold" Foreground="Black" TextWrapping="Wrap" Text="{Binding SelectedMember.Skills[0].PP}"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+
+                    <Button>
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontSize="20" FontWeight="Bold" Foreground="Black" TextWrapping="Wrap" Text="{Binding SelectedMember.Skills[1].Name}"/>
+                                <TextBlock FontSize="20" FontWeight="Bold" Foreground="Black" TextWrapping="Wrap" Text="/"/>
+                                <TextBlock FontSize="20" FontWeight="Bold" Foreground="Black" TextWrapping="Wrap" Text="{Binding SelectedMember.Skills[1].Damage}"/>
+                                <TextBlock FontSize="20" FontWeight="Bold" Foreground="Black" TextWrapping="Wrap" Text="/"/>
+                                <TextBlock FontSize="20" FontWeight="Bold" Foreground="Black" TextWrapping="Wrap" Text="{Binding SelectedMember.Skills[1].PP}"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+
+                    <Button>
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontSize="20" FontWeight="Bold" Foreground="Black" TextWrapping="Wrap" Text="{Binding SelectedMember.Skills[2].Name}"/>
+                                <TextBlock FontSize="20" FontWeight="Bold" Foreground="Black" TextWrapping="Wrap" Text="/"/>
+                                <TextBlock FontSize="20" FontWeight="Bold" Foreground="Black" TextWrapping="Wrap" Text="{Binding SelectedMember.Skills[2].Damage}"/>
+                                <TextBlock FontSize="20" FontWeight="Bold" Foreground="Black" TextWrapping="Wrap" Text="/"/>
+                                <TextBlock FontSize="20" FontWeight="Bold" Foreground="Black" TextWrapping="Wrap" Text="{Binding SelectedMember.Skills[2].PP}"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+
+                    <Button>
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock FontSize="20" FontWeight="Bold" Foreground="Black" TextWrapping="Wrap" Text="{Binding SelectedMember.Skills[3].Name}"/>
+                                <TextBlock FontSize="20" FontWeight="Bold" Foreground="Black" TextWrapping="Wrap" Text="/"/>
+                                <TextBlock FontSize="20" FontWeight="Bold" Foreground="Black" TextWrapping="Wrap" Text="{Binding SelectedMember.Skills[3].Damage}"/>
+                                <TextBlock FontSize="20" FontWeight="Bold" Foreground="Black" TextWrapping="Wrap" Text="/"/>
+                                <TextBlock FontSize="20" FontWeight="Bold" Foreground="Black" TextWrapping="Wrap" Text="{Binding SelectedMember.Skills[3].PP}"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
             </Grid>
         </Grid>
     </Grid>

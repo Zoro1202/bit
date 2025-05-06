@@ -28,7 +28,7 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="1">
                 <StackPanel VerticalAlignment="Center">
-                    <Button Command="{Binding MenuBossCommand}" Padding="13" Margin="10, 5, 10, 5" Content="보스와 배틀" FontWeight="Bold" FontSize="14"/>
+                    <Button Name ="menu_bossbatle"  Command="{Binding MenuBossCommand}" Padding="13" Margin="10, 5, 10, 5" Content="보스와 배틀" FontWeight="Bold" FontSize="14"/>
                     <Button Padding="13" Margin="10, 5, 10, 5" Content="통신 배틀" FontWeight="Bold" FontSize="14"/>
                     <Button Padding="13" Margin="10, 5, 10, 5" Content="종료" FontWeight="Bold" FontSize="14"/>
                 </StackPanel>

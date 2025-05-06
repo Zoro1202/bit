@@ -4,7 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:_0430_턴제게임"
-             mc:Ignorable="d" DataContext="{Binding}" x:Name="uc" d:DesignHeight="80" d:DesignWidth="400">
+             mc:Ignorable="d" x:Name="uc" d:DesignHeight="80" d:DesignWidth="400">
+    <UserControl.DataContext>
+        <local:WindowViewModel/>
+    </UserControl.DataContext>
     <Grid>
         <Rectangle Stroke="Black" StrokeThickness="2" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
@@ -34,16 +37,15 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <TextBlock HorizontalAlignment="Left" Margin="5,0,0,0" TextWrapping="Wrap" Text="{Binding Path=kWValue, ElementName=uc}" VerticalAlignment="Top" Foreground="Black" FontSize="10"/>
-                <Label x:Name="_name" Content="내 포켓몬" Margin="10, 0, 0, 0"/>
-                <Label x:Name="_level" HorizontalAlignment="Right" Content="LV.10"/>
+                <Label x:Name="_name" Content="{Binding SelectedMember.Name}" Margin="10, 0, 0, 0"/>
+                <Label x:Name="_level" HorizontalAlignment="Right" Content="{Binding SelectedMember.Level}"/>
             </Grid>
             <Grid Grid.Row="1">
-                <ProgressBar x:Name="_hp" Margin="10, 10, 10, 10" Minimum="0" Maximum="50" Value="25" RenderTransformOrigin="0.5,0.5">
+                <ProgressBar x:Name="_hp" Margin="10, 10, 10, 10" Minimum="0" Maximum="100" Value="{Binding SelectedMember.Hp}" RenderTransformOrigin="0.5,0.5">
                     <ProgressBar.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
-                            <SkewTransform AngleX="-11"/>
+                            <SkewTransform AngleX="-10"/>
                             <RotateTransform Angle="0"/>
                             <TranslateTransform/>
                         </TransformGroup>

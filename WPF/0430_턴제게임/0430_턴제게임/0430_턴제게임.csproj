@@ -90,6 +90,8 @@
     <Compile Include="MonsterInfo.xaml.cs">
       <DependentUpon>MonsterInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Skill.cs" />
+    <Compile Include="WindowModel.cs" />
     <Compile Include="WindowViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
