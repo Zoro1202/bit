@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="f00038e9-2ab8-4360-81bd-c07e3600e7bb" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://192.168.0.139:8888/wcf/example/bookservice" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="bookservice.xsd" MetadataType="Schema" ID="cc42110f-2710-4796-9f0c-dc12fb1b1b74" SourceId="1" SourceUrl="http://192.168.0.139:8888/wcf/example/bookservice?xsd=xsd0" />
+    <MetadataFile FileName="bookservice.disco" MetadataType="Disco" ID="fda8537b-40bb-4c2e-b179-0523c243c5c6" SourceId="1" SourceUrl="http://192.168.0.139:8888/wcf/example/bookservice?disco" />
+    <MetadataFile FileName="BookWCFService.wsdl" MetadataType="Wsdl" ID="475f797e-4c3a-40df-8d36-680ac8a52ab1" SourceId="1" SourceUrl="http://192.168.0.139:8888/wcf/example/bookservice?wsdl" />
+    <MetadataFile FileName="bookservice1.xsd" MetadataType="Schema" ID="8338ded2-c771-49a6-a2b9-0fad6729cc9b" SourceId="1" SourceUrl="http://192.168.0.139:8888/wcf/example/bookservice?xsd=xsd1" />
+    <MetadataFile FileName="bookservice2.xsd" MetadataType="Schema" ID="0394096f-8142-4825-9204-410109336b4b" SourceId="1" SourceUrl="http://192.168.0.139:8888/wcf/example/bookservice?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
